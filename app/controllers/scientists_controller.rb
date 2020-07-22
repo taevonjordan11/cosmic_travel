@@ -14,19 +14,38 @@ class ScientistsController < ApplicationController
   end
 
   def create
-     @scientist = Scientist.create(scientist_params)
+     @scientist = Scientist.new(scientist_params)
      if @scientist.valid?
-       flash[:success] = "SWEET NEW ITEM"
-       redirect_to item_path(@scientist)
+       @scientist.save
+       flash[:success] = "Welcome Aboard!! "
+       redirect_to scientist_path(@scientist)
      else
        flash[:my_errors] = @scientist.errors.full_messages
-       redirect_to new_scientist_path 
+       redirect_to new_scientist_path
      end
+   end
+
+   def edit
+     @scientist = Scientist.find(params[:id])
+   end
+
+   def update
+     @scientist = Scientist.find(params[:id])
+     @scientist.update(scientist_params)
+
+     redirect_to scientist_path(@scientist)
+   end
+
+   def destroy
+     @scientist = Scientist.find(params[:id])
+     @scientist.destroy
+
+     redirect_to scientists_path
    end
 
 
   private
   def scientist_params
-    require(:scientist).permit(:name, :field_of_study)
+    params.require(:scientist).permit(:name, :field_of_study)
   end
 end

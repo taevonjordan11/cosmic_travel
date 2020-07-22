@@ -4,6 +4,8 @@
 <ul>
   <p> Field Of Study: <%= @scientist.field_of_study %></p>
   <p> <% @scientist.planets.each do |planet| %>
-      <p>Planets: <%= planet.name %></p>
+      <p>Planets Visited: <%= planet.name %></p>
       <% end %></p>
 </ul>
+
+<%= button_to "DELETE", scientist_path(@scientist), method: :delete %>
