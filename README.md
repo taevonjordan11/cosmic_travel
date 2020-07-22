@@ -1,5 +1,5 @@
 ## Task
- OUR PROJECT 
+
 It is the year 2100 and you run an interplanetary space travel agency.  You are building a website to book scientists on missions to other planets.  You already have built out your planetary database to perform all CRUD actions on the planets you travel to.  It is your job to build out Scientist and Mission models so that scientists can book their missions.  **In a given mission, one scientist will visit one planet**.  Over their careers, **scientists will visit many planets** and **planets will be visited by many scientists**.
 
 ## Instructions

@@ -1,0 +1,9 @@
+<h1><%= @scientist.name %></h1>
+
+
+<ul>
+  <p> Field Of Study: <%= @scientist.field_of_study %></p>
+  <p> <% @scientist.planets.each do |planet| %>
+      <p>Planets: <%= planet.name %></p>
+      <% end %></p>
+</ul>
