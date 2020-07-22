@@ -12,10 +12,10 @@ def create
    if @mission.valid?
      @mission.save
      flash[:success] = "Welcome Aboard!! "
-     redirect_to mission_path(@mission)
+     redirect_to scientist_path(@mission.scientist_id)
    else
      flash[:my_errors] = @mission.errors.full_messages
-     redirect_to new_mission_path
+     redirect_to new_mission_path(@mission)
    end
  end
 
