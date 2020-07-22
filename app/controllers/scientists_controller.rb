@@ -9,6 +9,21 @@ class ScientistsController < ApplicationController
     @scientist = Scientist.find(params[:id])
   end
 
+  def new
+    @scientist = Scientist.new
+  end
+
+  def create
+     @scientist = Scientist.create(scientist_params)
+     if @scientist.valid?
+       flash[:success] = "SWEET NEW ITEM"
+       redirect_to item_path(@scientist)
+     else
+       flash[:my_errors] = @scientist.errors.full_messages
+       redirect_to new_scientist_path 
+     end
+   end
+
 
   private
   def scientist_params
